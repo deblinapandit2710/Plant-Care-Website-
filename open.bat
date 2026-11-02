@@ -1,0 +1,3 @@
+@echo off
+echo Opening FloraPulse Plant Care Portfolio in your default web browser...
+start "" "%~dp0index.html"

@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloraPulse — The Ultimate Plant Care Guide & Encyclopedia</title>
+  <meta name="description" content="Discover detailed plant care guides including watering requirements, fertilizer needs, sunlight levels, soil mixes, and pet toxicity for every houseplant.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="FloraPulse Home">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22v-9"/>
+            <path d="M12 13c-2.5-3-6-4-9-4 0 7 6 10 9 13"/>
+            <path d="M12 13c2.5-3 6-4 9-4 0 7-6 10-9 13"/>
+            <path d="M12 8c-1.5-2-4-2.5-6-2.5 0 4.5 4 6.5 6 8.5"/>
+            <path d="M12 8c1.5-2 4-2.5 6-2.5 0 4.5-4 6.5-6 8.5"/>
+          </svg>
+        </span>
+        <span class="brand-name">Flora<span>Pulse</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links" id="navLinks" aria-label="Primary Navigation">
+        <a href="#hero" class="nav-item active">Home</a>
+        <a href="#plants" class="nav-item">Plant Directory</a>
+        <a href="#calculator" class="nav-item">Water Calculator</a>
+        <a href="#guides" class="nav-item">Care Guides</a>
+        <a href="#faq" class="nav-item">FAQ</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </nav>
+
+      <!-- Nav CTA & Bookmarks -->
+      <div class="nav-actions">
+        <button class="saved-plants-btn" id="savedPlantsBtn" aria-label="View Saved Plants" title="View Saved Plants">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span class="saved-counter" id="savedCount">0</span>
+        </button>
+
+        <a href="#contact" class="btn btn-primary btn-nav-cta">
+          <span>Plant Clinic</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <span class="logo-icon">🌿</span>
+        <span class="brand-name">Flora<span>Pulse</span></span>
+      </div>
+      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="#hero" class="mobile-link">Home</a>
+      <a href="#plants" class="mobile-link">Plant Directory</a>
+      <a href="#calculator" class="mobile-link">Water Calculator</a>
+      <a href="#guides" class="mobile-link">Care Essentials</a>
+      <a href="#faq" class="mobile-link">Common Questions</a>
+      <a href="#contact" class="mobile-link">Contact & Support</a>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <a href="#contact" class="btn btn-primary btn-block">Get Plant Diagnosis</a>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-glow glow-1"></div>
+    <div class="hero-bg-glow glow-2"></div>
+    <div class="container hero-container">
+      <div class="hero-badge animate-fade-in">
+        <span class="badge-dot"></span>
+        <span>A little care. A lot of green.</span>
+      </div>
+      <h1 class="hero-title animate-fade-in-up">
+        Make room for <span class="text-gradient">a greener life.</span>
+      </h1>
+      <p class="hero-subtitle animate-fade-in-up delay-1">
+        Unlock master-gardener secrets for watering schedules, precise fertilizer formulas, optimal sunlight zones, soil blends, and pet toxicity alerts.
+      </p>
+
+      <!-- Quick Search Bar inside Hero -->
+      <div class="hero-search-wrapper animate-fade-in-up delay-2">
+        <div class="hero-search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="heroSearchInput" placeholder="Search by name (e.g. Monstera, Snake Plant, Peace Lily)..." autocomplete="off">
+          <button class="btn btn-primary btn-search" id="heroSearchBtn">Search</button>
+        </div>
+        <div class="quick-tags">
+          <span class="quick-tag-label">Popular:</span>
+          <button class="tag-pill" data-filter="Monstera">Monstera</button>
+          <button class="tag-pill" data-filter="Snake Plant">Snake Plant</button>
+          <button class="tag-pill" data-filter="Peace Lily">Peace Lily</button>
+          <button class="tag-pill" data-filter="low-light">Low Light</button>
+          <button class="tag-pill" data-filter="pet-safe">Pet Friendly</button>
+        </div>
+      </div>
+
+      <div class="hero-photo-story">
+        <figure class="hero-photo-main"><img src="assets/monstera-deliciosa.jpg" alt="Lush green Monstera foliage" width="800" height="900" fetchpriority="high"><figcaption><span>THE INDOOR JUNGLE</span><strong>Grow something beautiful.</strong></figcaption></figure>
+        <figure class="hero-photo-small"><img src="assets/fiddle-leaf-fig.jpg" alt="Fiddle leaf fig tree" width="400" height="500"><figcaption>Your new favorite corner.</figcaption></figure>
+        <a class="hero-photo-note" href="#plants">🌱 <span>Find your perfect plant ↗</span></a>
+      </div>      <!-- Hero Statistics -->
+      <div class="hero-stats animate-fade-in-up delay-3">
+        <div class="stat-card">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Horticulturist Verified</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">16+</span>
+          <span class="stat-label">Curated Species</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">3-Step</span>
+          <span class="stat-label">Water Calculator</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">0 Cost</span>
+          <span class="stat-label">Free Open Directory</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PLANT DIRECTORY SECTION ==================== -->
+  <section class="plants-section" id="plants">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Care Encyclopedia</span>
+        <h2 class="section-title">Explore Plant Care Profiles</h2>
+        <p class="section-subtitle">
+          Find detailed instructions for water, fertilizer, sunlight, soil, humidity, and safety tailored to your plant's biology.
+        </p>
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div class="directory-toolbar">
+        <!-- Live Search Input -->
+        <div class="search-bar-container">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="plantSearchInput" placeholder="Filter plants by name or scientific species..." autocomplete="off">
+            <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search" title="Clear">&times;</button>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="category-pills" id="categoryPills">
+          <button class="category-btn active" data-category="all">All Plants</button>
+          <button class="category-btn" data-category="indoor">Indoor Foliage</button>
+          <button class="category-btn" data-category="low-light">Low Light</button>
+          <button class="category-btn" data-category="succulent">Succulents & Cacti</button>
+          <button class="category-btn" data-category="flowering">Flowering</button>
+          <button class="category-btn" data-category="pet-safe">Pet Safe 🐾</button>
+          <button class="category-btn" data-category="air-purifying">Air Purifying 🍃</button>
+        </div>
+
+        <!-- Secondary Dropdown Filters -->
+        <div class="advanced-filters-row">
+          <div class="filter-group">
+            <label for="filterLight">☀️ Sunlight Level:</label>
+            <select id="filterLight" class="filter-select">
+              <option value="all">Any Light</option>
+              <option value="low">Low Light / Dappled</option>
+              <option value="medium">Medium / Indirect Bright</option>
+              <option value="bright">Direct / Bright Sunlight</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filterWater">💧 Watering Need:</label>
+            <select id="filterWater" class="filter-select">
+              <option value="all">Any Water Level</option>
+              <option value="low">Low (Drought Tolerant)</option>
+              <option value="medium">Moderate (Top 2" Dry)</option>
+              <option value="high">Frequent (Keep Moist)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filterDifficulty">🌱 Maintenance:</label>
+            <select id="filterDifficulty" class="filter-select">
+              <option value="all">Any Difficulty</option>
+              <option value="Beginner">Beginner Friendly</option>
+              <option value="Easy">Easy</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+
+          <div class="filter-group reset-group">
+            <button class="btn btn-outline btn-reset" id="resetFiltersBtn">Reset Filters</button>
+          </div>
+        </div>
+
+        <!-- Results Counter & Status -->
+        <div class="results-meta">
+          <span id="resultsCountText">Showing <strong>16</strong> plants</span>
+          <span class="saved-filter-toggle" id="showSavedOnlyBtn">
+            <input type="checkbox" id="savedOnlyCheckbox">
+            <label for="savedOnlyCheckbox">Show Saved Favorites Only ❤️</label>
+          </span>
+        </div>
+      </div>
+
+      <!-- Plant Cards Grid -->
+      <div class="plant-grid" id="plantGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-icon">🌱</div>
+        <h3>No plants match your search criteria</h3>
+        <p>Try clearing filters or searching with a different term.</p>
+        <button class="btn btn-primary" id="emptyResetBtn">View All Plants</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARE CALCULATOR SECTION ==================== -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="calc-wrapper">
+        <div class="calc-info">
+          <span class="section-tag">Interactive Diagnostic</span>
+          <h2 class="section-title">Smart Plant Care & Water Calculator</h2>
+          <p class="section-subtitle">
+            Not sure when to water or feed? Enter your plant's environment details below and get a science-backed care regimen tailored to your room climate.
+          </p>
+          <ul class="calc-features-list">
+            <li>
+              <span class="check-icon">✓</span>
+              <span><strong>Prevents Overwatering:</strong> #1 killer of houseplants</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span><strong>Seasonal Adaptation:</strong> Adjusts for winter dormancy</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span><strong>Pot Size Factoring:</strong> Accounts for soil volume & drying speed</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="calc-card">
+          <form id="careCalcForm" class="calc-form">
+            <div class="form-group">
+              <label for="calcPlantSelect">Choose Plant Species:</label>
+              <select id="calcPlantSelect" class="form-control" required>
+                <!-- Options populated dynamically -->
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="calcPotSize">Pot Size:</label>
+                <select id="calcPotSize" class="form-control">
+                  <option value="small">Small (< 6 inches / Nursery pot)</option>
+                  <option value="medium" selected>Medium (6 – 10 inches)</option>
+                  <option value="large">Large (> 10 inches / Floor pot)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="calcSeason">Current Season:</label>
+                <select id="calcSeason" class="form-control">
+                  <option value="summer" selected>Spring / Summer (Active Growth)</option>
+                  <option value="winter">Fall / Winter (Dormant Period)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="calcEnvironment">Room Light Intensity:</label>
+                <select id="calcEnvironment" class="form-control">
+                  <option value="low">Low Light (North window / Interior)</option>
+                  <option value="medium" selected>Bright Indirect (East / Filtered West)</option>
+                  <option value="high">Direct Sun (South window / Sunny sill)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="calcTemperature">Room Climate:</label>
+                <select id="calcTemperature" class="form-control">
+                  <option value="normal" selected>Moderate (20°C - 24°C / 68°F - 75°F)</option>
+                  <option value="warm">Warm / Dry (AC or heater on, > 25°C)</option>
+                  <option value="cool">Cool / Humid (< 18°C / 65°F)</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-calc-submit">
+              <span>Calculate My Plant's Schedule</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Result Card -->
+          <div class="calc-result" id="calcResult" style="display: none;">
+            <div class="result-header">
+              <h4 id="calcResultPlantName">Monstera Deliciosa</h4>
+              <span class="badge-season" id="calcResultSeason">Spring / Summer Schedule</span>
+            </div>
+            
+            <div class="result-grid">
+              <div class="result-item">
+                <span class="res-icon">💧</span>
+                <span class="res-label">Watering Frequency</span>
+                <strong class="res-val" id="calcWaterVal">Every 7 – 9 Days</strong>
+              </div>
+              <div class="result-item">
+                <span class="res-icon">🧪</span>
+                <span class="res-label">Fertilizer Regimen</span>
+                <strong class="res-val" id="calcFertVal">Every 3 – 4 Weeks (Half Strength)</strong>
+              </div>
+              <div class="result-item">
+                <span class="res-icon">☀️</span>
+                <span class="res-label">Sunlight Target</span>
+                <strong class="res-val" id="calcSunVal">Bright Indirect (1500+ Lux)</strong>
+              </div>
+              <div class="result-item">
+                <span class="res-icon">🪴</span>
+                <span class="res-label">Check Soil Before</span>
+                <strong class="res-val" id="calcSoilCheckVal">Top 2 inches completely dry</strong>
+              </div>
+            </div>
+
+            <div class="result-tip" id="calcTipVal">
+              💡 <strong>Pro Tip:</strong> Always check soil with the finger test before watering. If wet, wait 2 more days.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARE GUIDES SECTION ==================== -->
+  <section class="guides-section" id="guides">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Essential Principles</span>
+        <h2 class="section-title">Master The 4 Pillars of Plant Care</h2>
+        <p class="section-subtitle">
+          Scientific fundamentals every gardener should know to keep greenery vibrant year-round.
+        </p>
+      </div>
+
+      <div class="guides-grid">
+        <!-- Card 1: Watering -->
+        <div class="guide-card">
+          <div class="guide-icon-badge water">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+          </div>
+          <h3>1. The Golden Rule of Watering</h3>
+          <p>
+            Overwatering is the #1 reason houseplants die. It's not about how much water you pour at once, but how frequently you do it.
+          </p>
+          <ul class="guide-bullets">
+            <li><strong>The Finger Test:</strong> Insert your finger 2 inches deep. If it feels cool and moist, wait.</li>
+            <li><strong>Drainage Holes:</strong> Always ensure pots have drainage holes to prevent root rot.</li>
+            <li><strong>Bottom Watering:</strong> Soak the pot base in water for 20 minutes for even saturation.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Sunlight -->
+        <div class="guide-card">
+          <div class="guide-icon-badge sun">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </div>
+          <h3>2. Decoding Sunlight Zones</h3>
+          <p>
+            Light is plant food. Without adequate photosynthesis, plants cannot process water or nutrients.
+          </p>
+          <ul class="guide-bullets">
+            <li><strong>Direct Sunlight:</strong> Rays hit leaves directly (South/West facing windows).</li>
+            <li><strong>Bright Indirect:</strong> Strong light with no direct burn (East facing or sheer curtains).</li>
+            <li><strong>Low Light:</strong> Distant from windows (tolerated by Snake Plants & ZZ Plants).</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Fertilizer -->
+        <div class="guide-card">
+          <div class="guide-icon-badge fert">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 2v7.31M14 9.3V2M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/>
+            </svg>
+          </div>
+          <h3>3. Fertilizer & N-P-K Chemistry</h3>
+          <p>
+            Soil nutrients deplete over time in indoor pots. Fertilizer supplies vital macronutrients:
+          </p>
+          <ul class="guide-bullets">
+            <li><strong>Nitrogen (N):</strong> Promotes lush green foliage and vigorous stem growth.</li>
+            <li><strong>Phosphorus (P):</strong> Stimulates root establishment and vibrant blooming.</li>
+            <li><strong>Potassium (K):</strong> Strengthens overall disease resistance and water retention.</li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Soil & Repotting -->
+        <div class="guide-card">
+          <div class="guide-icon-badge soil">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+          </div>
+          <h3>4. Soil Aeration & Repotting</h3>
+          <p>
+            Roots breathe oxygen. Heavy, dense garden soil suffocates indoor potted root systems.
+          </p>
+          <ul class="guide-bullets">
+            <li><strong>The Golden Chunky Mix:</strong> 40% standard potting mix, 30% perlite, 30% orchid bark.</li>
+            <li><strong>Repotting Signs:</strong> Roots curling through drainage holes or water draining instantly.</li>
+            <li><strong>Upsizing:</strong> Only upsize pot diameter by 2 inches to avoid excess soggy soil.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ SECTION ==================== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Common Inquiries</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Quick troubleshooting answers from our community of plant lovers.
+        </p>
+      </div>
+
+      <div class="faq-accordion" id="faqAccordion">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Why are my plant's leaf tips turning brown and crispy?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Brown crispy tips are typically caused by low atmospheric humidity, tap water minerals (fluoride/chlorine), or inconsistent underwatering. Boost humidity with a pebble tray or humidifier, and let tap water sit out for 24 hours before watering.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Should I fertilize my houseplants during the winter months?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Generally no. In winter, daylight hours shorten, triggering a dormancy or slow-growth phase in most indoor plants. Adding fertilizer during dormancy can cause salt buildup and burn root systems. Resume feeding in early spring when new leaves sprout.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What causes yellow leaves on houseplants?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yellowing leaves most commonly stem from overwatering (suffocating roots). If lower leaves are soft and yellow, inspect the soil moisture immediately. Less commonly, yellowing can signal nitrogen deficiency, pest infestation, or natural shedding of old foliage.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How can I tell if a plant is safe for dogs and cats?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Look for our 🐾 <strong>Pet Safe</strong> filter badge in the directory! Plants like Spider Plants, Boston Ferns, Calatheas, and Peperomias are non-toxic. Toxic species like Philodendrons, Monsteras, and Pothos contain insoluble calcium oxalate crystals which irritate pet mouths.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is the difference between direct and bright indirect light?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Direct sunlight means uninhibited sun rays hit the leaf surface, creating a distinct, sharp shadow on the wall. Bright indirect sunlight is intense natural illumination where you can comfortably read a book, but the actual sunbeam does not hit the leaves directly, preventing sunburn.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT FORM SECTION ==================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- Contact Information Side -->
+        <div class="contact-info-panel">
+          <span class="section-tag">Plant Health Support</span>
+          <h2 class="section-title">Ask Our Horticulturists</h2>
+          <p class="section-subtitle">
+            Struggling with a sick leaf, yellowing stem, or mysterious pests? Send us a description and our botanical specialists will guide you back to health.
+          </p>
+
+          <div class="info-blocks">
+            <div class="info-block">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Direct Email</h4>
+                <p>care@florapulse.garden</p>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Response Time</h4>
+                <p>Within 24 hours, 7 days a week</p>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Botanical Lab</h4>
+                <p>Greenhouse Studio, Sector 4, Botanical Blvd</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="guarantee-box">
+            <span class="leaf-badge">🌿</span>
+            <p><strong>100% Free Botanical Advice:</strong> We believe everyone deserves to enjoy vibrant indoor greenery without stress.</p>
+          </div>
+        </div>
+
+        <!-- Contact Form Side -->
+        <div class="contact-form-panel">
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-header">
+              <h3>Send Care Inquiry</h3>
+              <p>Fill out the details below and we'll reply with custom advice.</p>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Your Name <span class="required">*</span></label>
+                <input type="text" id="contactName" class="form-control" placeholder="Jane Doe" required>
+                <span class="field-error" id="nameError">Please enter your name</span>
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail">Email Address <span class="required">*</span></label>
+                <input type="email" id="contactEmail" class="form-control" placeholder="jane@example.com" required>
+                <span class="field-error" id="emailError">Please enter a valid email address</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactInquiryType">Inquiry Topic</label>
+                <select id="contactInquiryType" class="form-control">
+                  <option value="diagnosis">Plant Health Diagnosis (Yellow/Drooping)</option>
+                  <option value="watering">Watering & Schedule Advice</option>
+                  <option value="fertilizer">Fertilizer & Soil Recommendation</option>
+                  <option value="repotting">Repotting & Root Care</option>
+                  <option value="species-request">Request a New Plant Guide</option>
+                  <option value="other">General Question</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contactPlantName">Plant Name / Species</label>
+                <input type="text" id="contactPlantName" class="form-control" placeholder="e.g. Fiddle Leaf Fig">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEnvironment">Plant Location / Environment</label>
+              <select id="contactEnvironment" class="form-control">
+                <option value="indoor-bright">Living Room (Bright Indirect)</option>
+                <option value="indoor-low">Bedroom / Office (Low Light)</option>
+                <option value="window-direct">Direct Sunlight Window</option>
+                <option value="balcony">Balcony / Patio</option>
+                <option value="outdoor">Outdoor Garden</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Describe the Issue or Question <span class="required">*</span></label>
+              <textarea id="contactMessage" class="form-control" rows="5" placeholder="Tell us how long you've had the plant, watering habits, and symptoms you've noticed..." required></textarea>
+              <span class="field-error" id="messageError">Please provide a brief description</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-submit" id="contactSubmitBtn">
+              <span class="btn-text">Submit Care Request</span>
+              <span class="btn-spinner" style="display: none;"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DETAILED PLANT CARE MODAL ==================== -->
+  <div class="modal-overlay" id="plantModalOverlay" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalPlantTitle">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close plant profile">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-badge-category" id="modalCategory">Indoor Foliage</span>
+          <h2 class="modal-title" id="modalPlantTitle">Monstera Deliciosa</h2>
+          <p class="modal-botanical-name" id="modalBotanicalName">Monstera deliciosa Liebm.</p>
+        </div>
+        <div class="modal-header-badges" id="modalHeaderBadges">
+          <!-- Pet safe or toxicity badge -->
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Banner Image & Quick Summary -->
+        <div class="modal-hero-split">
+          <div class="modal-image-wrapper">
+            <img src="" alt="" id="modalImage" class="modal-img">
+            <div class="modal-image-badge" id="modalDifficultyBadge">Beginner Friendly</div>
+          </div>
+          <div class="modal-quick-summary">
+            <h4>Species Overview</h4>
+            <p id="modalOverview">
+              Native to tropical rainforests, Monstera Deliciosa is prized for its dramatic fenestrated leaves. Extremely resilient and adaptable to indoor conditions.
+            </p>
+
+            <div class="modal-meter-grid">
+              <!-- Sunlight Meter -->
+              <div class="meter-card">
+                <div class="meter-icon">☀️</div>
+                <div class="meter-info">
+                  <span class="meter-title">Sunlight</span>
+                  <strong id="modalLightSummary">Bright Indirect</strong>
+                  <div class="visual-meter">
+                    <div class="meter-fill" id="modalLightFill" style="width: 75%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Watering Meter -->
+              <div class="meter-card">
+                <div class="meter-icon">💧</div>
+                <div class="meter-info">
+                  <span class="meter-title">Water Needs</span>
+                  <strong id="modalWaterSummary">Every 1-2 Weeks</strong>
+                  <div class="visual-meter">
+                    <div class="meter-fill" id="modalWaterFill" style="width: 50%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fertilizer Meter -->
+              <div class="meter-card">
+                <div class="meter-icon">🧪</div>
+                <div class="meter-info">
+                  <span class="meter-title">Fertilizer</span>
+                  <strong id="modalFertSummary">Monthly in Spring/Summer</strong>
+                  <div class="visual-meter">
+                    <div class="meter-fill" id="modalFertFill" style="width: 60%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Temperature & Humidity -->
+              <div class="meter-card">
+                <div class="meter-icon">🌡️</div>
+                <div class="meter-info">
+                  <span class="meter-title">Ideal Temp & Air</span>
+                  <strong id="modalTempSummary">18°C – 30°C (65°F – 85°F)</strong>
+                  <span class="subtext" id="modalHumiditySummary">60%+ Humidity</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deep Care Breakdown Tabs / Sections -->
+        <div class="modal-tabs">
+          <button class="modal-tab-btn active" data-tab="care-details">Detailed Care Specs</button>
+          <button class="modal-tab-btn" data-tab="soil-propagation">Soil & Propagation</button>
+          <button class="modal-tab-btn" data-tab="troubleshooting">Diagnostics & Pests</button>
+        </div>
+
+        <div class="modal-tab-content">
+          <!-- Tab 1: Detailed Specs -->
+          <div class="tab-pane active" id="tab-care-details">
+            <div class="spec-grid">
+              <div class="spec-item">
+                <div class="spec-icon">💧</div>
+                <div class="spec-content">
+                  <h5>Complete Watering Guide</h5>
+                  <p id="modalWaterDetail">Allow top 50% of soil to dry out between waterings. Reduce significantly in winter.</p>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">🧪</div>
+                <div class="spec-content">
+                  <h5>Fertilizer Formula & Frequency</h5>
+                  <p id="modalFertDetail">Balanced 20-20-20 liquid fertilizer diluted to half strength monthly during active spring and summer growth. Withhold in winter dormancy.</p>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">☀️</div>
+                <div class="spec-content">
+                  <h5>Sunlight & Placement Advice</h5>
+                  <p id="modalLightDetail">Thrives in bright indirect light. Direct noon sun will scorch fenestrated leaves. Tolerates medium light with slower growth.</p>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">🐾</div>
+                <div class="spec-content">
+                  <h5>Pet & Child Safety</h5>
+                  <p id="modalToxicityDetail">Toxic to dogs and cats if chewed due to insoluble calcium oxalate crystals.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Soil & Propagation -->
+          <div class="tab-pane" id="tab-soil-propagation">
+            <div class="spec-grid">
+              <div class="spec-item">
+                <div class="spec-icon">🪴</div>
+                <div class="spec-content">
+                  <h5>Recommended Soil & Potting Mix</h5>
+                  <p id="modalSoilDetail">Airy aroid blend: 40% potting soil, 30% perlite, 20% orchid bark, 10% worm castings. Drainage hole mandatory.</p>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">✂️</div>
+                <div class="spec-content">
+                  <h5>Pruning & Grooming</h5>
+                  <p id="modalPruningDetail">Trim discolored foliage at stem base using sterile shears. Dust large leaves with a damp cloth every month.</p>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">🌱</div>
+                <div class="spec-content">
+                  <h5>How to Propagate</h5>
+                  <p id="modalPropDetail">Take a clean stem cutting directly below an aerial root node and place in filtered water until 2-inch roots form.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3: Troubleshooting -->
+          <div class="tab-pane" id="tab-troubleshooting">
+            <div class="trouble-box">
+              <h5>Common Problems & Solutions</h5>
+              <div id="modalTroubleshootingList" class="trouble-list">
+                <!-- Injected via app.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="modalSavePlantBtn">
+          <span>Save to My Favorites</span> ❤️
+        </button>
+        <button class="btn btn-primary" id="modalOpenCalcBtn">
+          <span>Calculate Water Schedule</span> 💧
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATIONS ==================== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="brand-logo">
+          <span class="logo-icon">🌿</span>
+          <span class="brand-name">Flora<span>Pulse</span></span>
+        </a>
+        <p class="footer-desc">
+          Empowering plant parents worldwide with accurate, botanical-grade care instructions. Nurture your indoor jungle with confidence.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Pinterest">📌</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="GitHub">💻</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#plants">Plant Directory</a></li>
+          <li><a href="#calculator">Watering Calculator</a></li>
+          <li><a href="#guides">Care Principles</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Plant Clinic</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Plant Categories</h4>
+        <ul>
+          <li><a href="#plants" class="footer-cat-link" data-cat="indoor">Indoor Foliage</a></li>
+          <li><a href="#plants" class="footer-cat-link" data-cat="low-light">Low Light Champions</a></li>
+          <li><a href="#plants" class="footer-cat-link" data-cat="succulent">Succulents & Cacti</a></li>
+          <li><a href="#plants" class="footer-cat-link" data-cat="flowering">Flowering Beauties</a></li>
+          <li><a href="#plants" class="footer-cat-link" data-cat="pet-safe">Pet Friendly Species</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column newsletter-col">
+        <h4>Plant Care Newsletter</h4>
+        <p>Get monthly seasonal care reminders and seasonal fertilizer schedules.</p>
+        <form id="newsletterForm" class="newsletter-form">
+          <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary">Join</button>
+        </form>
+        <span class="newsletter-note">Zero spam. Unsubscribe anytime.</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2026 FloraPulse Botanical Guide. Built with pure HTML, CSS & JavaScript.</p>
+        <p class="footer-extra-links">
+          <a href="#">Privacy Policy</a> &bull; 
+          <a href="#">Terms of Care</a> &bull; 
+          <a href="#hero">Back to Top ↑</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Link JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
+
